@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FiPlus, FiTrash2, FiChevronLeft, FiChevronRight, FiX } from 'react-icons/fi';
+import { FiPlus, FiTrash2, FiChevronLeft, FiChevronRight, FiX, FiUpload } from 'react-icons/fi';
+import { extractTextFromPDF } from '../utils/pdfReader';
 
 export default function FlashcardsTab({ onStatsUpdate }) {
   const [sets, setSets] = useState([]);
@@ -124,6 +125,33 @@ export default function FlashcardsTab({ onStatsUpdate }) {
     }
   };
 
+  const handlePDFUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.includes('pdf')) {
+      setError('Please select a PDF file');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const text = await extractTextFromPDF(file);
+      setInput(text);
+      // Use PDF filename as set title if not already set
+      if (!generatingSetTitle.trim()) {
+        setGeneratingSetTitle(file.name.replace('.pdf', ''));
+      }
+    } catch (err) {
+      setError(err.message || 'Failed to read PDF');
+      console.error('PDF extraction error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const selectedSet = sets.find(s => s.id === selectedSetId);
   const currentCard = selectedSet?.cards[currentCardIndex];
 
@@ -169,14 +197,28 @@ export default function FlashcardsTab({ onStatsUpdate }) {
                 />
               </div>
 
-              <button
-                onClick={generateFlashcards}
-                disabled={generating || !input.trim() || !generatingSetTitle.trim()}
-                className="w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium"
-              >
-                <FiPlus size={20} />
-                {generating ? 'Generating...' : 'Generate Flashcards'}
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={generateFlashcards}
+                  disabled={generating || !input.trim() || !generatingSetTitle.trim()}
+                  className="flex-1 bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium"
+                >
+                  <FiPlus size={20} />
+                  {generating ? 'Generating...' : 'Generate'}
+                </button>
+
+                <label className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                  <FiUpload size={20} />
+                  PDF
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={handlePDFUpload}
+                    disabled={loading}
+                    className="hidden"
+                  />
+                </label>
+              </div>
             </div>
           </div>
         </div>

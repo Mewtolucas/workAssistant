@@ -6,10 +6,16 @@ A powerful desktop application for note-taking, text summarization, and flashcar
 
 - **Dashboard**: Quick overview of your notes, flashcards, emails, and calendar
 - **Notes**: Create, edit, and manage notes with auto-save to local JSON files
+  - 📄 **PDF Upload**: Upload PDF files and extract text automatically
 - **Summarizer**: Paste any text and get AI-powered summaries using Claude API
+  - 📄 **PDF Upload**: Upload PDFs to summarize them
+  - 🔌 **Chrome Extension**: Extract PDFs from browser and send to app
 - **Flashcards**: Generate flashcard sets from study material using Claude AI
+  - 📄 **PDF Upload**: Generate flashcards from PDF content
+  - 🔌 **Chrome Extension**: Extract study material from PDFs in your browser
 - **Dark Mode**: Beautiful dark theme for comfortable use
 - **Local Storage**: All data stored locally in your home directory
+- **Chrome Extension**: Extract PDFs directly from your browser
 
 ## Tech Stack
 
@@ -86,6 +92,34 @@ personal-assistant/
 - **Flashcards**: `~/.personal-assistant/flashcards/`
 
 All data is stored as JSON files for easy backup and portability.
+
+## PDF Features
+
+### Using PDF Files
+
+The app supports PDFs in multiple ways:
+
+#### 1. File Upload (All Tabs)
+- **Notes Tab**: Click the "PDF" button to upload a PDF and auto-extract text as a note
+- **Summarizer Tab**: Click "Upload PDF" to extract and summarize
+- **Flashcards Tab**: Click "PDF" button to extract content for flashcard generation
+
+#### 2. Chrome Extension
+For extracting PDFs directly from your browser:
+
+1. Go to `chrome://extensions/`
+2. Enable "Developer mode" (top right)
+3. Click "Load unpacked"
+4. Select the `extension/` folder in your project
+5. The extension icon will appear in your toolbar
+
+**How to use:**
+- Open any PDF in Chrome
+- Click the Personal Assistant extension icon
+- Click "Extract PDF & Send"
+- The extracted text is stored and ready to use
+
+See `extension/SETUP.md` for detailed instructions.
 
 ## Usage
 

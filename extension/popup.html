@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 400px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: #f3f4f6;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .status {
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+
+    .status.info {
+      background-color: #1e3a8a;
+      color: #93c5fd;
+    }
+
+    .status.success {
+      background-color: #064e3b;
+      color: #86efac;
+    }
+
+    .status.error {
+      background-color: #7c2d12;
+      color: #fca5a5;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: white;
+    }
+
+    .btn-primary {
+      background-color: #3b82f6;
+    }
+
+    .btn-primary:hover {
+      background-color: #2563eb;
+    }
+
+    .btn-primary:disabled {
+      background-color: #6b7280;
+      cursor: not-allowed;
+    }
+
+    .info-text {
+      font-size: 13px;
+      color: #d1d5db;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #374151;
+    }
+
+    .info-text strong {
+      color: #f3f4f6;
+    }
+
+    .file-info {
+      padding: 12px;
+      background-color: #374151;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      font-size: 13px;
+    }
+
+    .file-info p {
+      margin: 4px 0;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #f3f4f6;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 6px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📄 PDF to Assistant</h1>
+
+    <div id="status" class="status info" style="display: none;"></div>
+
+    <div class="actions">
+      <button id="extractBtn" class="btn-primary">Extract PDF & Send</button>
+    </div>
+
+    <div id="fileInfo" class="file-info" style="display: none;">
+      <p><strong>File:</strong> <span id="fileName"></span></p>
+      <p><strong>Size:</strong> <span id="fileSize"></span></p>
+    </div>
+
+    <div class="info-text">
+      <p>💡 <strong>How it works:</strong></p>
+      <p>This extension extracts text from PDF files in your browser and sends it to your Personal Assistant app.</p>
+      <p style="margin-top: 8px;">Make sure your Personal Assistant app is running!</p>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

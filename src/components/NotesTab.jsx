@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FiPlus, FiX, FiTrash2 } from 'react-icons/fi';
+import { FiPlus, FiX, FiTrash2, FiUpload } from 'react-icons/fi';
+import { extractTextFromPDF } from '../utils/pdfReader';
 
 export default function NotesTab({ onStatsUpdate }) {
   const [notes, setNotes] = useState([]);
@@ -70,6 +71,32 @@ export default function NotesTab({ onStatsUpdate }) {
     setEditingId(null);
   };
 
+  const handlePDFUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.includes('pdf')) {
+      alert('Please select a PDF file');
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const text = await extractTextFromPDF(file);
+      // Use PDF filename as note title if not already set
+      if (!title.trim()) {
+        setTitle(file.name.replace('.pdf', ''));
+      }
+      setContent(text);
+    } catch (err) {
+      alert('Failed to read PDF: ' + err.message);
+      console.error('PDF extraction error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="p-8">
       <div className="mb-8">
@@ -115,6 +142,17 @@ export default function NotesTab({ onStatsUpdate }) {
                   <FiPlus size={20} />
                   {editingId ? 'Update' : 'Save'}
                 </button>
+                <label className="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                  <FiUpload size={20} />
+                  PDF
+                  <input
+                    type="file"
+                    accept=".pdf"
+                    onChange={handlePDFUpload}
+                    disabled={loading}
+                    className="hidden"
+                  />
+                </label>
                 {editingId && (
                   <button
                     onClick={handleCancel}

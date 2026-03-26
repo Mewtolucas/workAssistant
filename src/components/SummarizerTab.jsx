@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FiZap, FiCopy, FiCheck } from 'react-icons/fi';
+import { FiZap, FiCopy, FiCheck, FiUpload } from 'react-icons/fi';
+import { extractTextFromPDF } from '../utils/pdfReader';
 
 export default function SummarizerTab() {
   const [input, setInput] = useState('');
@@ -58,6 +59,29 @@ export default function SummarizerTab() {
     }
   };
 
+  const handlePDFUpload = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.includes('pdf')) {
+      setError('Please select a PDF file');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const text = await extractTextFromPDF(file);
+      setInput(text);
+    } catch (err) {
+      setError(err.message || 'Failed to read PDF');
+      console.error('PDF extraction error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(summary);
     setCopied(true);
@@ -79,17 +103,32 @@ export default function SummarizerTab() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Paste your text here..."
-            rows="14"
+            rows="12"
             className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 placeholder-gray-500 focus:outline-none focus:border-blue-500 resize-none"
           />
-          <button
-            onClick={handleSummarize}
-            disabled={loading || !input.trim()}
-            className="w-full mt-4 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium"
-          >
-            <FiZap size={20} />
-            {loading ? 'Summarizing...' : 'Summarize'}
-          </button>
+
+          <div className="flex gap-2 mt-4">
+            <button
+              onClick={handleSummarize}
+              disabled={loading || !input.trim()}
+              className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium"
+            >
+              <FiZap size={20} />
+              {loading ? 'Summarizing...' : 'Summarize'}
+            </button>
+
+            <label className="flex-1 bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 font-medium cursor-pointer">
+              <FiUpload size={20} />
+              Upload PDF
+              <input
+                type="file"
+                accept=".pdf"
+                onChange={handlePDFUpload}
+                disabled={loading}
+                className="hidden"
+              />
+            </label>
+          </div>
         </div>
 
         {/* Output */}
