@@ -27,15 +27,14 @@ Just double-click: start-app-windows.bat
 
 ---
 
-## For Mac/Linux Users
+## For Mac Users
 
 ### Installation
 ```
 1. Download the project as a ZIP file
 2. Extract it to your desired location
 3. Open the folder
-4. Double-click: install-mac-linux.sh
-   OR run in Terminal: bash install-mac-linux.sh
+4. Double-click: install-mac.command
 5. Follow the prompts
    - It checks Node.js
    - Installs everything
@@ -46,8 +45,30 @@ Just double-click: start-app-windows.bat
 
 ### Starting the App Later
 ```
-Double-click: start-app-mac-linux.sh
-OR in Terminal: bash start-app-mac-linux.sh
+Just double-click: start-app-mac.command
+```
+
+## For Linux Users
+
+### Installation
+```
+1. Download the project as a ZIP file
+2. Extract it to your desired location
+3. Open the folder
+4. Double-click: install-linux.sh
+   OR in Terminal: bash install-linux.sh
+5. Follow the prompts
+   - It checks Node.js
+   - Installs everything
+   - Asks for API key (optional)
+   - Starts the app
+6. Done! App is running ✨
+```
+
+### Starting the App Later
+```
+Double-click: start-app-linux.sh
+OR in Terminal: bash start-app-linux.sh
 ```
 
 ---

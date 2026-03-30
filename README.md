@@ -11,10 +11,18 @@ A powerful desktop application for note-taking, text summarization, and flashcar
 4. Follow the prompts
 5. Done! ✨
 
-### **Mac/Linux Users:**
+### **Mac Users:**
 1. Download the project as a ZIP file
 2. Extract it
-3. **Run:** `install-mac-linux.sh`
+3. **Double-click:** `install-mac.command`
+4. Follow the prompts
+5. Done! ✨
+
+### **Linux Users:**
+1. Download the project as a ZIP file
+2. Extract it
+3. **Double-click:** `install-linux.sh`
+   - Or in Terminal: `bash install-linux.sh`
 4. Follow the prompts
 5. Done! ✨
 

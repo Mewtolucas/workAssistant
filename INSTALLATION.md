@@ -5,6 +5,20 @@ This guide walks you through every step needed to get the app running on your co
 
 ---
 
+## ⚡ QUICK START (Recommended)
+
+**Most users should use the automatic installers:**
+
+- **Windows:** Double-click `install-windows.bat`
+- **Mac:** Double-click `install-mac.command`
+- **Linux:** Double-click `install-linux.sh` or run `bash install-linux.sh`
+
+The installers handle everything automatically. This guide is for those who prefer manual installation.
+
+---
+
+---
+
 ## STEP 1: Check Your System Requirements
 
 Before you start, make sure you have:

@@ -72,19 +72,32 @@ The installer will handle everything automatically!
 
 That's it! The app will start automatically.
 
-#### **Mac/Linux Users:**
+#### **Mac Users:**
 
-**Option 1: Using File Explorer (Easiest)**
-1. **Open Finder/File Manager**
+1. **Open the `personal-assistant` folder**
+2. **Double-click:** `install-mac.command`
+3. **A terminal window will open** showing the installation progress
+4. **Follow the on-screen prompts:**
+   - The installer checks Node.js ✓
+   - Installs dependencies ✓
+   - Asks for your Claude API key (optional)
+   - Sets up the Chrome extension ✓
+   - Starts the app ✓
+
+That's it! The app will start automatically.
+
+#### **Linux Users:**
+
+**Option 1: Double-click (Easiest)**
+1. **Open File Manager**
 2. Navigate to the `personal-assistant` folder
-3. **Right-click** on `install-mac-linux.sh`
-4. Click **"Open"** or **"Run"**
-5. A terminal window will open
-6. **Follow the on-screen prompts** (same as Windows above)
+3. **Double-click** `install-linux.sh`
+4. A terminal window will open
+5. **Follow the on-screen prompts** (same as above)
 
 **Option 2: Using Terminal (If Option 1 doesn't work)**
 1. Open Terminal
-2. Type: `bash /path/to/personal-assistant/install-mac-linux.sh`
+2. Type: `bash /path/to/personal-assistant/install-linux.sh`
    - Replace `/path/to/` with the actual path
 3. Press Enter
 4. **Follow the on-screen prompts**
