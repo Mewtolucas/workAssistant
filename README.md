@@ -104,22 +104,13 @@ The app supports PDFs in multiple ways:
 - **Summarizer Tab**: Click "Upload PDF" to extract and summarize
 - **Flashcards Tab**: Click "PDF" button to extract content for flashcard generation
 
-#### 2. Chrome Extension
+#### 2. Chrome Extension (Easy One-Click Install!)
 For extracting PDFs directly from your browser:
 
-1. Go to `chrome://extensions/`
-2. Enable "Developer mode" (top right)
-3. Click "Load unpacked"
-4. Select the `extension/` folder in your project
-5. The extension icon will appear in your toolbar
+**Windows:** Double-click `extension/install-windows.bat`
+**Mac/Linux:** Run `extension/install-mac-linux.sh` in Terminal
 
-**How to use:**
-- Open any PDF in Chrome
-- Click the Personal Assistant extension icon
-- Click "Extract PDF & Send"
-- The extracted text is stored and ready to use
-
-See `extension/SETUP.md` for detailed instructions.
+For detailed instructions, see **EXTENSION_INSTALL.md**
 
 ## Usage
 

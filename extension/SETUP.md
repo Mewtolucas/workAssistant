@@ -4,93 +4,66 @@
 
 This extension allows you to extract PDF content from Chrome and send it directly to your Personal Assistant app.
 
-### Installation
+## 🚀 Quick Start (No Terminal!)
 
-1. **Open Chrome Extensions Page**
+### Windows Users
+1. **Double-click**: `install-windows.bat`
+2. **Follow the prompts** on screen
+3. **Done!** The extension is installed
+
+### Mac/Linux Users
+1. **Double-click**: `install-mac-linux.sh`
+   - Or open Terminal and run: `bash install-mac-linux.sh`
+2. **Follow the prompts** on screen
+3. **Done!** The extension is installed
+
+## 📖 Detailed Instructions
+
+See **EXTENSION_INSTALL.md** for:
+- Step-by-step visual guide
+- Windows/Mac/Linux instructions
+- Troubleshooting
+- Screenshot descriptions
+
+## ✅ Manual Installation (Backup Option)
+
+If the installer doesn't work:
+
+1. **Open Chrome Extensions**
    - Type in address bar: `chrome://extensions/`
-   - Or go to Menu → More tools → Extensions
+   - Press Enter
 
 2. **Enable Developer Mode**
-   - Toggle "Developer mode" in the top right corner
+   - Toggle in top right corner: ON
 
-3. **Load Unpacked Extension**
+3. **Load Unpacked**
    - Click "Load unpacked"
-   - Navigate to the `extension` folder in this project
-   - Select the folder and click "Open"
+   - Select the `extension` folder
+   - Click "Open"
 
-4. **Verify Installation**
-   - You should see "Personal Assistant PDF Extractor" in your extensions list
-   - A new icon should appear in your Chrome toolbar
+4. **Verify**
+   - Extension appears in list
+   - Personal Assistant icon shows in toolbar
 
-### How to Use
+## 🎯 How to Use
 
-1. **Open a PDF in Chrome**
-   - Navigate to any PDF file in your browser
-   - (Local files: `file://path/to/file.pdf`)
-   - (Online PDFs: Direct links to PDF files)
+1. **Open a PDF** in Chrome
+2. **Click the Personal Assistant icon** (top right)
+3. **Click "Extract PDF & Send"**
+4. ✅ PDF text is extracted and ready to use!
 
-2. **Click the Extension Icon**
-   - Click the Personal Assistant icon in your toolbar
-   - A popup will appear
+## Features
 
-3. **Extract and Send**
-   - Click "Extract PDF & Send"
-   - The extension will extract the text from the PDF
-   - Data is stored and ready to use in your Personal Assistant app
-
-4. **Use in Your App**
-   - Open your Personal Assistant app
-   - Go to Notes, Summarizer, or Flashcards tab
-   - Look for the "Sync from Extension" button (if added)
-   - Or use the normal file upload to access the extracted content
-
-### Features
-
-- ✅ Extracts text from multi-page PDFs (up to 50 pages)
-- ✅ Works with local files and online PDFs
-- ✅ Stores extracted content locally
+- ✅ Extracts text from multi-page PDFs
+- ✅ Works with local and online PDFs
 - ✅ No data sent to external servers
 - ✅ Dark theme UI
+- ✅ Works on Windows, Mac, Linux
 
-### Limitations
+## Need Help?
 
-- Only extracts text (not images or complex layouts)
-- Limited to 50 pages (can be increased in code)
-- Requires the PDF to have text content
-- Some PDFs with special formatting may extract imperfectly
+See **EXTENSION_INSTALL.md** (in the main folder) for:
+- Visual guide with screenshots
+- Troubleshooting common issues
+- Detailed step-by-step instructions
 
-### Troubleshooting
-
-**Extension not showing icon**
-- Refresh the page
-- Check that extension is enabled (toggle in extensions page)
-
-**Can't extract PDF**
-- Make sure you're on a PDF page (address should end in .pdf)
-- Check browser console for errors (F12 → Console)
-- Try reloading the page
-
-**Extracted text looks broken**
-- Some PDFs have complex layouts that don't extract well
-- Try using the Summarizer to clean up the text
-
-### File Structure
-
-```
-extension/
-├── manifest.json      # Extension configuration
-├── popup.html        # Popup UI
-├── popup.js          # Popup logic & PDF extraction
-├── background.js     # Service worker
-├── content.js        # Content script
-├── images/           # Extension icons
-└── SETUP.md         # This file
-```
-
-### Future Improvements
-
-- [ ] Add browser action menu for choosing action (Summarize/Note/Flashcard)
-- [ ] Real-time sync with Personal Assistant app
-- [ ] Custom keyboard shortcut
-- [ ] Support for more languages
-- [ ] Better handling of images and complex layouts
