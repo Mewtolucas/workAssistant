@@ -2,6 +2,24 @@
 
 A powerful desktop application for note-taking, text summarization, and flashcard generation with AI-powered features using Claude and Electron + React.
 
+## 🚀 Quick Start (5 Minutes!)
+
+### **Windows Users:**
+1. Download the project as a ZIP file
+2. Extract it
+3. **Double-click:** `install-windows.bat`
+4. Follow the prompts
+5. Done! ✨
+
+### **Mac/Linux Users:**
+1. Download the project as a ZIP file
+2. Extract it
+3. **Run:** `install-mac-linux.sh`
+4. Follow the prompts
+5. Done! ✨
+
+👉 **See [DOWNLOAD_AND_INSTALL.md](DOWNLOAD_AND_INSTALL.md) for detailed instructions**
+
 ## Features
 
 - **Dashboard**: Quick overview of your notes, flashcards, emails, and calendar
@@ -26,17 +44,33 @@ A powerful desktop application for note-taking, text summarization, and flashcar
 
 ## Setup
 
-### Prerequisites
+### Automatic Installation (Recommended)
 
-- Node.js 14+ and npm
-- Claude API key (get it from https://console.anthropic.com/)
+**Windows:**
+- Double-click `install-windows.bat`
+- Follow the on-screen prompts
+- The app will start automatically
 
-### Installation
+**Mac/Linux:**
+- Run `install-mac-linux.sh` from the terminal or double-click it
+- Follow the on-screen prompts
+- The app will start automatically
 
-1. **Clone/Extract the project**
-   ```bash
-   cd personal-assistant
-   ```
+The installer will:
+- ✅ Check if Node.js is installed
+- ✅ Install all dependencies
+- ✅ Prompt for your Claude API key
+- ✅ Set up the Chrome extension
+- ✅ Start the app automatically
+
+📖 **See [DOWNLOAD_AND_INSTALL.md](DOWNLOAD_AND_INSTALL.md) for complete instructions**
+
+### Manual Installation (Advanced)
+
+If you prefer manual setup:
+
+1. **Install Node.js** (if not already installed)
+   - Download from https://nodejs.org/ (LTS version)
 
 2. **Install dependencies**
    ```bash
@@ -44,25 +78,26 @@ A powerful desktop application for note-taking, text summarization, and flashcar
    ```
 
 3. **Configure API Key**
-   - Copy `.env.example` to `.env`
-   - Add your Claude API key to `.env`:
+   - Create a `.env` file in the root folder
+   - Add your Claude API key:
    ```
    REACT_APP_CLAUDE_API_KEY=your_actual_api_key_here
    ```
+   - Get your key from https://console.anthropic.com/
 
-### Running the App
+4. **Start the app**
+   ```bash
+   npm start
+   ```
 
-**Development mode** (with hot reload):
-```bash
-npm start
-```
+### Starting the App Later
 
-This will start both the React development server and the Electron app.
+**Windows:**
+- Double-click `start-app-windows.bat`
 
-**Build for production**:
-```bash
-npm run build
-```
+**Mac/Linux:**
+- Run `start-app-mac-linux.sh`
+- Or: `npm start` in the project folder
 
 ## Project Structure
 
