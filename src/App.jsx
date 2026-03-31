@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiHome, FiMail, FiFileText, FiZap, FiGrid2, FiCalendar } from 'react-icons/fi';
+import { FiHome, FiMail, FiFileText, FiZap, FiGrid, FiCalendar } from 'react-icons/fi';
 import Dashboard from './components/Dashboard';
 import NotesTab from './components/NotesTab';
 import SummarizerTab from './components/SummarizerTab';
@@ -27,7 +27,7 @@ export default function App() {
     { id: 'email', label: 'Email', icon: FiMail, component: null },
     { id: 'notes', label: 'Notes', icon: FiFileText, component: NotesTab },
     { id: 'summarizer', label: 'Summarizer', icon: FiZap, component: SummarizerTab },
-    { id: 'flashcards', label: 'Flashcards', icon: FiGrid2, component: FlashcardsTab },
+    { id: 'flashcards', label: 'Flashcards', icon: FiGrid, component: FlashcardsTab },
     { id: 'calendar', label: 'Calendar', icon: FiCalendar, component: null }
   ];
 

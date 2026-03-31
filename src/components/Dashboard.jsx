@@ -1,10 +1,10 @@
 import React from 'react';
-import { FiFileText, FiGrid2, FiMail, FiCalendar } from 'react-icons/fi';
+import { FiFileText, FiGrid, FiMail, FiCalendar } from 'react-icons/fi';
 
 export default function Dashboard({ stats }) {
   const statCards = [
     { label: 'Notes', value: stats.notesCount, icon: FiFileText, color: 'from-blue-400 to-blue-600' },
-    { label: 'Flashcard Sets', value: stats.flashcardsCount, icon: FiGrid2, color: 'from-purple-400 to-purple-600' },
+    { label: 'Flashcard Sets', value: stats.flashcardsCount, icon: FiGrid, color: 'from-purple-400 to-purple-600' },
     { label: 'Unread Emails', value: stats.unreadEmails, icon: FiMail, color: 'from-pink-400 to-pink-600' },
     { label: 'Upcoming Events', value: stats.upcomingEvents, icon: FiCalendar, color: 'from-green-400 to-green-600' }
   ];
